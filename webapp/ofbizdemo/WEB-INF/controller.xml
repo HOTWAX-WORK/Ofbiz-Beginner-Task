@@ -41,23 +41,33 @@ under the License.
 
     <!-- Request Mappings -->
     <request-map uri="main"><security https="true" auth="true"/><response name="success" type="view" value="main"/></request-map>
+
+    <!-- Step 7 To call the service when form hits submit -->
     <request-map uri="createOfbizDemo">
         <security https="true" auth="true"/>
         <event type="service" invoke="createOfbizDemo"/>
         <response name="success" type="view" value="main"/>
     </request-map>
-    <request-map uri="FindOfbizDemo"><security https="true" auth="true"/><response name="success" type="view" value="FindOfbizDemo"/></request-map>
+    <!--    step 10 target of form will hit here and it will called view  FindOfbizDemo -->
+    <request-map uri="FindOfbizDemo">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="FindOfbizDemo"/>
+    </request-map>
+
+    <!-- Step 13 To call the Java service when form hits submit -->
     <request-map uri="createOfbizDemoByJava">
         <security https="true" auth="true"/>
         <event type="service" invoke="createOfbizDemoJavaService"/>
         <response name="success" type="view" value="main"/>
     </request-map>
+
+    <!-- Step 14 To call the groovy service when form hits submit -->
     <request-map uri="createOfbizDemoGroovy">
         <security https="true" auth="true"/>
         <event type="service" invoke="createOfbizDemoGroovyService"/>
         <response name="success" type="view" value="main"/>
     </request-map>
-
+    <!-- Step 16 created the map to call the event-->
     <request-map uri="createOfbizDemoEvent">
         <security https="true" auth="true"/>
         <event type="java" path="com.ofbizdemo.events.OfbizDemoEvents" invoke="createOfbizDemoEvent"/>
@@ -65,16 +75,30 @@ under the License.
         <response name="error" type="view" value="main"/>
     </request-map>
 
+
+    <!-- It will call View Map AddOfbizDemoFtl -->
     <request-map uri="AddOfbizDemoFtl">
         <security https="true" auth="true"/>
         <response name="success" type="view" value="AddOfbizDemoFtl"/>
     </request-map>
 
 
+    <!-- It will call View Map AddOfbizDemoFtlCustomized -->
+    <request-map uri="AddOfbizDemoFtlCustomized">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="AddOfbizDemoFtlCustomized"/>
+    </request-map>
+
+
 
     <!-- View Mapping -->
-    <view-map name="FindOfbizDemo" type="screen" page="component://ofbizdemo/widget/OfbizdemoScreens.xml#FindOfbizDemo"/>
+<!-- Step 7  Already added view map to display the main screen so we don't need to add, as we have included the form in main sceen-->
     <view-map name="main" type="screen" page="component://ofbizdemo/widget/OfbizdemoScreens.xml#main"/>
+<!-- step 10 this will help to redirect to screen FindOfbizDemo -->
+    <view-map name="FindOfbizDemo" type="screen" page="component://ofbizdemo/widget/OfbizdemoScreens.xml#FindOfbizDemo"/>
+<!-- this will help to redirect to screen AddOfbizDemoFtl-->
     <view-map name="AddOfbizDemoFtl" type="screen" page="component://ofbizdemo/widget/OfbizdemoScreens.xml#AddOfbizDemoFtl"/>
+<!-- this will help to redirect to screen AddOfbizDemoFtlCustomized-->
+    <view-map name="AddOfbizDemoFtlCustomized" type="screen" page="component://ofbizdemo/widget/OfbizdemoScreens.xml#AddOfbizDemoFtlCustomized"/>
 
 </site-conf>

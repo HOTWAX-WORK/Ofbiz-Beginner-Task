@@ -1,3 +1,4 @@
+//Step 17 Event to add data to the entity
 package com.ofbizdemo.events;
 
 import javax.servlet.http.HttpServletRequest;
@@ -41,8 +42,6 @@ public class OfbizDemoEvents{
         }
         request.setAttribute("_EVENT_MESSAGE_", "Entity created succesfully");
         return "success";
-
-
 
     }
 

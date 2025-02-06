@@ -26,7 +26,7 @@ under the License.
     <title>Entity of Ofbizdemo Component</title>
     <description>None</description>
     <version>1.0</version>
-
+<!--   Step - 1 Creating entities and understanding relations -->
     <entity entity-name="OfbizDemoType" package-name="ofbizdemo" title="OFBiz Demo Type Entity">
         <field name="ofbizDemoTypeId" type="id"><description>primary sequenced ID</description></field>
         <field name="description" type="description"> </field>

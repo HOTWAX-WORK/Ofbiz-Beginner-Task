@@ -31,12 +31,16 @@ under the License.
     <!-- entity resources: model(s), eca(s), group, and data definitions -->
     <entity-resource type="model" reader-name="main" loader="main" location="entitydef/entitymodel.xml"/>
     <!-- <entity-resource type="eca" reader-name="main" loader="main" location="entitydef/eecas.xml"/> -->
+
+    <!-- Step - 2:- To Load Demo Data specify resource location here -->
     <entity-resource type="data" reader-name="seed" loader="main" location="data/OfbizdemoTypeData.xml"/>
     <entity-resource type="data" reader-name="seed" loader="main" location="data/OfbizdemoSecurityPermissionSeedData.xml"/>
     <entity-resource type="data" reader-name="demo" loader="main" location="data/OfbizdemoSecurityGroupDemoData.xml"/>
     <entity-resource type="data" reader-name="demo" loader="main" location="data/OfbizdemoDemoData.xml"/>
 
     <!-- service resources: model(s), eca(s) and group definitions -->
+
+    <!-- Step - 3:- Loading Service from here  -->
     <service-resource type="model" loader="main" location="servicedef/services.xml"/>
     <!--
     <service-resource type="eca" loader="main" location="servicedef/secas.xml"/>

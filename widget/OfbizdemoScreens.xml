@@ -29,8 +29,10 @@ under the License.
             <widgets>
                 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
+                        <!--learnt to print hello world on screen-->
                         <label text="Hello World!! :)"/>
                         <screenlet title="Add Ofbiz Demo">
+                            <!-- Step 5 included form on the screen to make it visible -->
                             <include-form name="AddOfbizDemo" location="component://ofbizdemo/widget/OfbizdemoForms.xml"/>
                         </screenlet>
                     </decorator-section>
@@ -50,11 +52,13 @@ under the License.
             </widgets>
         </section>
     </screen>
+<!--    Step 11 this creen wil display the forms-->
     <screen name="FindOfbizDemo">
         <section>
             <actions>
-                <set field="headerItem" value="findOfbizDemo"/>
+                <set field="headerItem" value="FindOfbizDemo"/>
                 <set field="titleProperty" value="FindOfbizDemo"/>
+<!--                yaha se hum parameters ko context me daal rahe -->
                 <set field="ofbizDemoCtx" from-field="parameters"/>
             </actions>
             <widgets>
@@ -83,33 +87,55 @@ under the License.
             </widgets>
         </section>
     </screen>
+<!--    Added a new screen that specify and add the location of ftl templated and groovy-->
     <screen name="AddOfbizDemoFtl">
         <section>
             <actions>
-                <set field="titleProperty" value="PageTitleAddOfbizDemos"/>
+                <set field="titleProperty" value="AddOfbizDemos"/>
                 <set field="headerItem" value="AddOfbizDemoFtl"/>
+
+                <!-- Include the Groovy script for the list of OfbizDemos -->
                 <script location="component://ofbizdemo/webapp/ofbizdemo/WEB-INF/actions/crud/ListOfbizDemo.groovy"/>
             </actions>
             <widgets>
                 <decorator-screen name="OfbizdemoCommonDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
-<!--                        <screenlet title="${uiLabelMap.OfbizDemoListOfbizDemos}">-->
-<!--                            <platform-specific>-->
-<!--                                <html><html-template location="component://ofbizdemo/webapp/ofbizdemo/crud/ListOfbizDemo.ftl"/></html>-->
-<!--                            </platform-specific>-->
-<!--                        </screenlet>-->
-<!--                        <screenlet title="${uiLabelMap.OfbizDemoAddOfbizDemoServiceByFtl}">-->
-<!--                            <platform-specific>-->
-<!--                                <html><html-template location="component://ofbizdemo/webapp/ofbizdemo/crud/AddOfbizDemo.ftl"/></html>-->
-<!--                            </platform-specific>-->
-<!--                        </screenlet>-->
+                        <screenlet title="${uiLabelMap.OfbizDemoListOfbizDemos}">
+                            <platform-specific>
+                                <html><html-template location="component://ofbizdemo/webapp/ofbizdemo/crud/ListOfbizDemo.ftl"/></html>
+                            </platform-specific>
+                        </screenlet>
+                        <screenlet title="${uiLabelMap.OfbizDemoAddOfbizDemoServiceByFtl}">
+                            <platform-specific>
+                                <html><html-template location="component://ofbizdemo/webapp/ofbizdemo/crud/AddOfbizDemo.ftl"/></html>
+                            </platform-specific>
+                        </screenlet>
+
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="AddOfbizDemoFtlCustomized">
+        <section>
+            <actions>
+                <set field="titleProperty" value="AddOfbizDemos"/>
+                <set field="headerItem" value="AddOfbizDemoFtl"/>
+                <!-- Include the Groovy script for the list of OfbizDemos -->
+                <script location="component://ofbizdemo/webapp/ofbizdemo/WEB-INF/actions/crud/ListOfbizDemo.groovy"/>
+            </actions>
+            <widgets>
+                <!-- Specified the name of teh decorator to use -->
+                <decorator-screen name="OfbizdemoCommonCustomizedDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+
                         <label style="h4" text="${uiLabelMap.OfbizDemoListOfbizDemos}"/>
                         <platform-specific>
-                            <html><html-template location="component://ofbizdemo/webapp/ofbizdemo/crud/ListOfbizDemo1.ftl"/></html>
+                            <html><html-template location="component://ofbizdemo/webapp/ofbizdemo/crud/ListOfbizDemoCustomized.ftl"/></html>
                         </platform-specific>
                         <label style="h4" text="${uiLabelMap.OfbizDemoAddOfbizDemoFtl}"/>
                         <platform-specific>
-                            <html><html-template location="component://ofbizdemo/webapp/ofbizdemo/crud/AddOfbizDemo1.ftl"/></html>
+                            <html><html-template location="component://ofbizdemo/webapp/ofbizdemo/crud/AddOfbizDemoCustomized.ftl"/></html>
                         </platform-specific>
                     </decorator-section>
                 </decorator-screen>

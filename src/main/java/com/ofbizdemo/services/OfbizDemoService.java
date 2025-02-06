@@ -1,3 +1,4 @@
+//Step 13 Java service code to add data to the entity
 package com.ofbizdemo.services;
 import java.util.Map;
 import org.apache.ofbiz.base.util.Debug;
@@ -28,6 +29,5 @@ public class OfbizDemoService {
             return ServiceUtil.returnError("Error in Ofbiz DEmo entity" + Module);
         }
         return result;
-
     }
 }

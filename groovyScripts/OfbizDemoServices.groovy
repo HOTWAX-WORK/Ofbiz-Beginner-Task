@@ -1,3 +1,4 @@
+//Step 15 Groovy service code to add data to the entity
 import org.apache.ofbiz.entity.GenericEntityException;
 
 def createOfbizDemo()

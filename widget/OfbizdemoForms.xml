@@ -20,6 +20,9 @@ under the License.
 
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="http://ofbiz.apache.org/Widget-Form" xsi:schemaLocation="http://ofbiz.apache.org/Widget-Form http://ofbiz.apache.org/dtds/widget-form.xsd">
+
+<!--    step 4 creating form to show on screen that uses create ofbiz demo service to add data -->
+<!--   changed the target to hit the event instead of sevice -->
     <form name="AddOfbizDemo" type="single" target="createOfbizDemoEvent">
 
         <auto-fields-service service-name="createOfbizDemo"/>
@@ -32,8 +35,9 @@ under the License.
         </field>
         <field name="submitButton" title="${uiLabelMap.CommonAdd}"><submit button-type="button"/></field>
     </form>
-
+    <!--    step 8 creating form to find ofbiz demo  -->
     <form name="FindOfbizDemo" type="single" target="FindOfbizDemo" default-entity-name="OfbizDemo">
+        <!--    ye specify karna jaruri h nhi to all blank fields k liye form work nhi karega  -->
         <field name="noConditionFind"><hidden value="Y"/> </field>
         <field name="ofbizDemoId" title="${uiLabelMap.OfbizDemoId}"><text-find/></field>
         <field name="firstName" title="${uiLabelMap.OfbizDemoFirstName}"><text-find/></field>
@@ -46,12 +50,16 @@ under the License.
             </drop-down>
         </field>
         <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button" /></field>
+        <!--        search button pr hit karne pr resource-view me target search karega fi waha
+        se view map pr hit karega view map screen pr redirect karega and sceen list form pr list
+        form me service h vo parameter context k basis pr search karegi -->
     </form>
 
+    <!--    step 9 creating form to list found data of ofbiz demo  -->
     <form name="ListOfbizDemo" type="list" list-name="listIt" paginate-target="FindOfbizDemo" default-entity-name="OfbizDemo" separate-columns="true"
           odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
         <actions>
-
+            <!--    service created here so that it can take data from find form and find the related entries  -->
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="ofbizDemoCtx"/>
                 <field-map field-name="entityName" value="OfbizDemo"/>

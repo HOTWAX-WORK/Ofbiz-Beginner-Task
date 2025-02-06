@@ -23,7 +23,7 @@ under the License.
     <description>OfbizDemo Services</description>
     <vendor></vendor>
     <version>1.0</version>
-
+<!--Step 3 Creating an auto entity service to add data to the entity-->
     <service name="createOfbizDemo" default-entity-name="OfbizDemo" engine="entity-auto" invoke="create" auth="true">
         <description>Create an Ofbiz Demo record</description>
         <auto-attributes include="pk" mode="OUT" optional="false"/>
@@ -35,15 +35,18 @@ under the License.
         <description>
             Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
         </description>
-    </service> 
+    </service>
 
+<!--Step 12 Creating a java service to add data to the entity-->
+<!--    here location specifies java file location -->
     <service name="createOfbizDemoJavaService" engine="java" location="com.ofbizdemo.services.OfbizDemoService"  invoke="createOfbizDemo" auth="true">
         <auto-attributes mode="IN" entity-name="OfbizDemo" include="nonpk" optional="false"/>
         <auto-attributes mode="OUT" entity-name="OfbizDemo" include="pk" optional="false"/>
         <override name="comments" optional="true"/>
     </service>
-
-    <service name="createOfbizDemoGroovyService" engine="groovy"    location="component://ofbizdemo/groovyScripts/OfbizDemoServices.groovy" default-entity-name="OfbizDemo" auth="true" invoke="createOfbizDemo">
+<!--  Step 14  Creating a java service to add data to the entity-->
+<!--    here location specifies groovy file location -->
+    <service name="createOfbizDemoGroovyService" engine="groovy" location="component://ofbizdemo/groovyScripts/OfbizDemoServices.groovy" default-entity-name="OfbizDemo" auth="true" invoke="createOfbizDemo">
         <auto-attributes mode="IN" optional="false" include="nonpk"/>
         <auto-attributes mode="OUT" optional="false" include="pk"/>
     </service>

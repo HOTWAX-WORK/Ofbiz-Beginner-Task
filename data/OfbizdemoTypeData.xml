@@ -18,6 +18,7 @@ specific language governing permissions and limitations
 under the License.
 -->
 
+<!-- Step - 2:- Loading Demo Data in the entities -->
 <entity-engine-xml>
     <OfbizDemoType ofbizDemoTypeId="INTERNAL" description="Internal Demo - Office"/>
     <OfbizDemoType ofbizDemoTypeId="EXTERNAL" description="External Demo - On Site"/>

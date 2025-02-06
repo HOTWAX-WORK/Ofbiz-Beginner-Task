@@ -57,4 +57,7 @@ under the License.
     <property key="titleProperty">
         <value xml:lang="en">Add OfBiz DEmo</value>
     </property>
+    <property key="AddOfbizDemoFtlCustomized">
+        <value xml:lang="en">Add Customized OfBiz Demo</value>
+    </property>
 </resource>
